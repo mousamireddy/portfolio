@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    /* Light mode - Elegant and vibrant */
+    --background: 210 50% 98%;
+    --foreground: 230 20% 25%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 230 20% 25%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 20% 25%;
+ 
+    /* Vibrant orange as primary */
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+ 
+    /* Teal accent for balance */
+    --secondary: 174 60% 51%;
+    --secondary-foreground: 230 20% 25%;
+ 
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 25% 40%;
+ 
+    /* Soft coral accent */
+    --accent: 15 80% 65%;
+    --accent-foreground: 230 20% 25%;
+ 
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 25 95% 53%;
+    --input: 214 32% 91%;
+    --ring: 25 95% 53%;
+ 
+    --radius: 0.85rem;
+  }
+
+  .dark {
+    /* Dark mode - Rich and bold */
+    --background: 230 25% 10%;
+    --foreground: 25 95% 53%;
+    
+    --card: 230 25% 13%;
+    --card-foreground: 25 95% 53%;
+ 
+    --popover: 230 25% 13%;
+    --popover-foreground: 25 95% 53%;
+ 
+    /* Bright orange for contrast */
+    --primary: 25 95% 53%;
+    --primary-foreground: 230 25% 10%;
+ 
+    /* Deep background variations */
+    --secondary: 230 25% 15%;
+    --secondary-foreground: 25 95% 53%;
+ 
+    --muted: 230 25% 15%;
+    --muted-foreground: 25 40% 70%;
+ 
+    /* Glowing orange accent */
+    --accent: 25 95% 53%;
+    --accent-foreground: 230 25% 10%;
+ 
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 25 95% 53%;
+    --input: 230 25% 15%;
+    --ring: 25 95% 53%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-background via-background to-background/90;
+  }
+}
+
+.glow-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 25px theme('colors.primary.DEFAULT');
+  transform: translateY(-3px);
+}
+
+.dark .glow-hover {
+  box-shadow: 0 0 15px rgba(255, 138, 76, 0.1);
+}
+
+.dark .glow-hover:hover {
+  box-shadow: 0 0 35px rgba(255, 138, 76, 0.3);
+}
+
+.gradient-btn {
+  background: linear-gradient(135deg, #FF8A4C, #FF6B2C);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(255, 138, 76, 0.3);
+}
+
+.gradient-btn:hover {
+  background: linear-gradient(135deg, #FF6B2C, #FF8A4C);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 138, 76, 0.4);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #FF8A4C, #FF6B2C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient {
+  background: linear-gradient(135deg, #FFA76A, #FF8A4C);
+}
+
+/* Glass effect for cards */
+.glass-effect {
+  backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+}
+
+.dark .glass-effect {
+  background: linear-gradient(135deg, rgba(255, 138, 76, 0.1), rgba(255, 138, 76, 0.05));
+}
